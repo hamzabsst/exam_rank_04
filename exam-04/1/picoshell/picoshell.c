@@ -53,8 +53,8 @@ int picoshell(char **cmds[]);
 
 int main(void)
 {
-	char *cmd1[] = {"ls", "-l", NULL};
-	char *cmd2[] = {"cat", "-e", NULL};
+	char *cmd1[] = {"ls", "-la", NULL};
+	char *cmd2[] = {"wc", "-c", NULL};
 	char **cmds[] = {cmd1, cmd2, NULL};
 	printf("exit code: %d\n", picoshell(cmds));
 }

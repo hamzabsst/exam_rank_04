@@ -1,4 +1,4 @@
-/* Allowed functions: pipe, fork, dup2, execvp, close, exit
+Allowed functions: pipe, fork, dup2, execvp, close, exit
 
 write the following function:
 
@@ -19,4 +19,4 @@ int main() {
         ft_putstr(line);
 }
 
-Hint: Do not leak file descriptors! */
+Hint: Do not leak file descriptors!
