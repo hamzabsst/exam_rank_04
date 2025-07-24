@@ -30,7 +30,8 @@ int picoshell(char **cmds[])
 				close(fd[1]);
 			}
 			execvp(cmds[i][0], cmds[i]);
-			exit(1);
+			//dont exit here based on grademe
+			// exit(1);
 		}
 		if (in != 0)
 			close(in);
@@ -43,7 +44,7 @@ int picoshell(char **cmds[])
 	}
 	while (wait(&status) > 0)
 		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-			return 1;
+			exit (1);//exit here based on grademe
 	return 0;
 }
 

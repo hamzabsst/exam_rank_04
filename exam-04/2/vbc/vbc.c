@@ -124,7 +124,6 @@ node *parse_term(char **s)
 	return left;
 }
 
-//REPLACE '*' by '+'
 node *parse_expr_r(char **s)
 {
 	node *left = parse_term(s);
