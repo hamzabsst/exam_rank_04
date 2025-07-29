@@ -43,7 +43,7 @@ void unexpected(char c)
 		printf("Unexpected token '%c'\n", c);
 	else
 		printf("Unexpected end of input\n");
-	writed == 1;
+	writed = 1;
 }
 
 int accept(char **s, char c)
