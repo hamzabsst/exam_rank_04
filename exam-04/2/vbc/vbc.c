@@ -34,19 +34,21 @@ void destroy_tree(node *n)
 	}
 	free(n);
 }
-
+int writed = 0;
 void unexpected(char c)
 {
+	if(writed)
+		return ;
 	if (c)
 		printf("Unexpected token '%c'\n", c);
 	else
-		printf("Unexpected end of input\n");  //correct message
-
+		printf("Unexpected end of input\n");
+	writed == 1;
 }
 
 int accept(char **s, char c)
 {
-	if (**s == c) //added == c
+	if (**s == c)
 	{
 		(*s)++;
 		return 1;
@@ -73,11 +75,7 @@ int eval_tree(node *tree)
 	return 0;
 }
 
-
-//this isnt given
 node *parse_expr_r(char **s);
-node *parse_term   (char **s);
-node *parse_factor (char **s);
 
 node *parse_factor(char **s)
 {

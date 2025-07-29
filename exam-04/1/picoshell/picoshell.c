@@ -1,7 +1,6 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <stdlib.h>
-
 int picoshell(char **cmds[])
 {
 	int i = 0;
@@ -9,7 +8,6 @@ int picoshell(char **cmds[])
 	int fd[2];
 	pid_t pid;
 	int status;
-
 	while (cmds[i])
 	{
 		if (cmds[i + 1] && pipe(fd) == -1)
@@ -31,7 +29,6 @@ int picoshell(char **cmds[])
 			}
 			execvp(cmds[i][0], cmds[i]);
 			//dont exit here based on grademe
-			// exit(1);
 		}
 		if (in != 0)
 			close(in);
@@ -46,16 +43,4 @@ int picoshell(char **cmds[])
 		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
 			exit (1);//exit here based on grademe
 	return 0;
-}
-
-#include <stdio.h>
-
-int picoshell(char **cmds[]);
-
-int main(void)
-{
-	char *cmd1[] = {"ls", "-la", NULL};
-	char *cmd2[] = {"wc", "-c", NULL};
-	char **cmds[] = {cmd1, cmd2, NULL};
-	printf("exit code: %d\n", picoshell(cmds));
 }
